@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    overflow: hidden;
+  }
+
+  .seccion {
+    padding: 8px 0 16px 0;
+  }
+
+  .titulo-seccion {
+    display: inline-block;
+    font-size: 0.72em;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    background: #FFD700;
+    padding: 4px 12px;
+    margin-bottom: 20px;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    border-left: 4px solid #FFD700;
+    background: #fafafa;
+    border-radius: 0 6px 6px 0;
+    transition: transform 0.2s;
+  }
+
+  .icono {
+    font-size: 1.6em;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .card-texto h3 {
+    font-size: 0.95em;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 3px;
+  }
+
+  .card-texto p {
+    font-size: 0.83em;
+    color: #555;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+  <div class="seccion">
+    <div class="titulo-seccion">Beneficios</div>
+    <div class="cards">
+      <div class="card">
+        <div class="icono">📍</div>
+        <div class="card-texto">
+          <h3>Profesionales locales</h3>
+          <p>Conocemos CDMX y sus rutas, garantizando tiempos y seguridad.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icono">🤝</div>
+        <div class="card-texto">
+          <h3>Atención personalizada</h3>
+          <p>Tratamos tus pertenencias como si fueran nuestras.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="icono">⭐</div>
+        <div class="card-texto">
+          <h3>Respaldo real</h3>
+          <p>Nuestros clientes nos recomiendan con un 100% de satisfacción.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
