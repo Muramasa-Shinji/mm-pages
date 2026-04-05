@@ -6,94 +6,64 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { font-family: 'Inter', sans-serif; background: #ffffff; overflow-x: hidden; }
 
-  html, body {
-    font-family: 'Inter', sans-serif;
-    background: #ffffff;
-    overflow-x: hidden;
-  }
-
-  .seccion {
-    padding: 8px 0 16px 0;
-  }
+  .seccion { padding: 8px 0 16px 0; }
 
   .titulo-seccion {
     display: inline-block;
-    font-size: 0.72em;
+    font-size: 0.7em;
     font-weight: 900;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #1a1a1a;
     background: #FFD700;
     padding: 4px 12px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
 
-  .cards {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 16px;
-  }
+  /* BASE: móvil pequeño (~360px) */
+  .cards { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
 
   .card {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 10px 14px;
+    gap: 10px;
+    padding: 8px 10px;
     border-left: 4px solid #FFD700;
     background: #fafafa;
     border-radius: 0 6px 6px 0;
   }
 
-  .icono {
-    font-size: 1.4em;
-    flex-shrink: 0;
-  }
+  .icono { font-size: 1.2em; flex-shrink: 0; }
 
-  .card-texto h3 {
-    font-size: 0.9em;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 2px;
-  }
+  .card-texto h3 { font-size: 0.82em; font-weight: 700; color: #1a1a1a; margin-bottom: 2px; }
+  .card-texto p  { font-size: 0.74em; color: #555; line-height: 1.4; }
 
-  .card-texto p {
-    font-size: 0.8em;
-    color: #555;
-    line-height: 1.4;
-  }
-
-  .foto-wrapper {
-    width: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
+  .foto-wrapper { width: 100%; border-radius: 8px; overflow: hidden; }
   .foto-wrapper img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    border-radius: 8px;
+    width: 100%; height: 130px;
+    object-fit: cover; object-position: center;
+    display: block; border-radius: 8px;
   }
 
-  @media (max-width: 600px) {
-    .card { padding: 8px 12px; gap: 10px; }
-    .icono { font-size: 1.2em; }
-    .card-texto h3 { font-size: 0.85em; }
-    .card-texto p { font-size: 0.76em; }
-    .foto-wrapper img { height: 160px; }
+  /* Móvil mediano ~420px */
+  @media (min-width: 420px) {
+    .card { padding: 9px 12px; gap: 11px; }
+    .icono { font-size: 1.3em; }
+    .card-texto h3 { font-size: 0.86em; }
+    .card-texto p  { font-size: 0.77em; }
+    .foto-wrapper img { height: 150px; }
   }
 
-  @media (max-width: 400px) {
-    .titulo-seccion { font-size: 0.65em; margin-bottom: 12px; }
-    .cards { gap: 8px; margin-bottom: 12px; }
-    .card { padding: 7px 10px; }
-    .card-texto h3 { font-size: 0.82em; }
-    .card-texto p { font-size: 0.73em; }
-    .foto-wrapper img { height: 140px; }
+  /* Tablet / desktop ~600px+ */
+  @media (min-width: 600px) {
+    .cards { gap: 12px; margin-bottom: 18px; }
+    .card { padding: 12px 16px; gap: 14px; align-items: flex-start; }
+    .icono { font-size: 1.6em; margin-top: 2px; }
+    .card-texto h3 { font-size: 0.95em; }
+    .card-texto p  { font-size: 0.83em; line-height: 1.5; }
+    .foto-wrapper img { height: 200px; }
   }
 </style>
 </head>
@@ -123,12 +93,9 @@
         </div>
       </div>
     </div>
-
     <div class="foto-wrapper">
-      <img
-        src="foto-equipo.jpg"
-        alt="Equipo de Mudanzas Pao en trabajo"
-        onerror="this.parentElement.style.display='none'">
+      <img src="foto-equipo.jpg" alt="Equipo de Mudanzas Pao en trabajo"
+           onerror="this.parentElement.style.display='none'">
     </div>
   </div>
 </body>
