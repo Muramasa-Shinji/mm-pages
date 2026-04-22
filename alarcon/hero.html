@@ -10,54 +10,54 @@
   :root {
     --gold-flat:  #c8973a;
     --gold-grad:  linear-gradient(115deg, #a0621a 0%, #e8b84b 40%, #f5d98a 60%, #c8973a 100%);
-    --dark:       #0e0e0e;
     --text-light: #e8e0d0;
     --text-muted: #999;
   }
   html, body {
-    width: 100%; height: 600px;
+    width: 100%; height: 340px;
     overflow: hidden;
     background: transparent;
     font-family: 'DM Sans', sans-serif;
   }
+
+  /* ── HERO ── */
   .hero {
     position: relative;
-    width: 100%; height: 600px;
+    width: 100%; height: 340px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;          /* horizontal */
     align-items: center;
-    padding: 32px 24px 28px;
+    padding: 28px 36px;
     overflow: hidden;
     background:
       linear-gradient(rgba(14,14,14,0.78), rgba(14,14,14,0.78)),
       url('https://muramasa-shinji.github.io/mm-pages/alarcon/hero.jpg') center center / cover no-repeat;
   }
+
+  /* Radial glow solo arriba */
   .hero::before {
     content: '';
     position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 80% 55% at 50% 0%, rgba(200,151,58,.18) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 40% at 85% 90%, rgba(200,151,58,.10) 0%, transparent 60%);
+    background: radial-gradient(ellipse 70% 60% at 30% 50%, rgba(200,151,58,.14) 0%, transparent 70%);
     pointer-events: none;
   }
-  .hero::after {
-    content: '';
-    position: absolute;
-    top: 0; left: -10%;
-    width: 55%; height: 2px;
-    background: var(--gold-grad);
-    transform: rotate(35deg) translateY(120px);
-    opacity: .3;
-    pointer-events: none;
+
+  /* ── COLUMNA IZQUIERDA ── */
+  .col-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative; z-index: 1;
+    padding-right: 32px;
   }
+
   .badge {
     display: inline-flex; align-items: center; gap: 8px;
-    padding: 5px 16px;
+    padding: 4px 14px;
     border: 1px solid rgba(200,151,58,.35);
     border-radius: 50px;
-    margin-bottom: 20px;
-    position: relative; z-index: 1;
   }
   .badge-dot {
     width: 6px; height: 6px; border-radius: 50%;
@@ -66,123 +66,154 @@
   }
   @keyframes pulse {
     0%,100% { opacity:1; transform:scale(1); }
-    50% { opacity:.5; transform:scale(1.4); }
+    50%      { opacity:.5; transform:scale(1.4); }
   }
-  .badge-text {
-    font-size: 10px; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--text-muted);
-  }
+  .badge-text { font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+
   .heading {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 700;
-    font-size: clamp(2.8rem, 9vw, 4.6rem);
-    line-height: 1.06; text-align: center;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    line-height: 1.05;
     color: var(--text-light);
-    position: relative; z-index: 1;
-    margin-bottom: 14px;
   }
   .heading .gold-word {
     background: var(--gold-grad);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text; display: inline-block;
   }
+
   .sub {
-    font-size: clamp(.82rem, 2.4vw, .95rem);
-    color: var(--text-muted); text-align: center;
-    max-width: 340px; line-height: 1.6;
-    position: relative; z-index: 1;
-    margin-bottom: 28px; font-weight: 300;
+    font-size: .82rem; color: var(--text-muted);
+    line-height: 1.55; font-weight: 300;
+    max-width: 280px;
   }
-  .cta-wrap {
-    display: flex; flex-direction: column;
-    align-items: center; gap: 12px;
-    position: relative; z-index: 1;
-    margin-bottom: 32px;
-  }
+
+  .cta-wrap { display: flex; align-items: center; gap: 16px; margin-top: 4px; }
+
   .btn-primary {
-    display: inline-flex; align-items: center; gap: 9px;
-    padding: 13px 30px;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 22px;
     background: var(--gold-grad);
     color: #0e0e0e;
     font-family: 'DM Sans', sans-serif;
-    font-size: .88rem; font-weight: 500;
+    font-size: .82rem; font-weight: 500;
     border: none; border-radius: 4px;
-    cursor: pointer; text-decoration: none;
-    letter-spacing: .04em; white-space: nowrap;
-    transition: opacity .2s, transform .2s;
+    text-decoration: none; white-space: nowrap;
+    letter-spacing: .03em;
+    transition: opacity .2s;
   }
-  .btn-primary:hover { opacity:.88; transform:translateY(-1px); }
+  .btn-primary:hover { opacity: .85; }
+
   .btn-secondary {
-    font-size: .75rem; color: var(--gold-flat);
+    font-size: .72rem; color: var(--gold-flat);
     text-decoration: none; letter-spacing: .08em;
     text-transform: uppercase;
-    display: inline-flex; align-items: center; gap: 6px;
-    opacity: .75; transition: opacity .2s;
+    display: inline-flex; align-items: center; gap: 5px;
+    opacity: .7; transition: opacity .2s; white-space: nowrap;
   }
   .btn-secondary:hover { opacity: 1; }
-  .stats {
-    display: flex;
-    border-top: 1px solid rgba(255,255,255,.08);
-    padding-top: 22px;
-    width: 100%; max-width: 400px;
+
+  /* ── DIVISOR VERTICAL ── */
+  .divider-v {
+    width: 1px;
+    height: 180px;
+    background: rgba(255,255,255,.1);
+    flex-shrink: 0;
     position: relative; z-index: 1;
   }
-  .stat {
-    flex: 1; display: flex; flex-direction: column;
-    align-items: center; gap: 3px; padding: 0 12px;
+
+  /* ── COLUMNA DERECHA — STATS ── */
+  .col-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-left: 36px;
+    position: relative; z-index: 1;
   }
-  .stat + .stat { border-left: 1px solid rgba(255,255,255,.08); }
+
+  .stat {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 2px;
+    text-align: center;
+  }
   .stat-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.75rem; font-weight: 700;
+    font-size: 2rem; font-weight: 700;
     background: var(--gold-grad);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text; line-height: 1;
   }
   .stat-label {
-    font-size: .64rem; color: var(--text-muted);
-    text-align: center; letter-spacing: .05em;
-    text-transform: uppercase; line-height: 1.3;
+    font-size: .6rem; color: var(--text-muted);
+    letter-spacing: .06em; text-transform: uppercase; line-height: 1.3;
   }
-  .corner { position: absolute; width: 40px; height: 40px; }
-  .corner-tl { top:20px; left:20px; border-top:2px solid rgba(200,151,58,.3); border-left:2px solid rgba(200,151,58,.3); border-radius:4px 0 0 0; }
-  .corner-br { bottom:20px; right:20px; border-bottom:2px solid rgba(200,151,58,.3); border-right:2px solid rgba(200,151,58,.3); border-radius:0 0 4px 0; }
-  .badge, .heading, .sub, .cta-wrap, .stats {
-    opacity: 0; transform: translateY(14px);
-    animation: fadeUp .65s ease forwards;
+
+  .stat-sep {
+    width: 30px; height: 1px;
+    background: rgba(200,151,58,.25);
   }
-  .heading  { animation-delay:.1s; }
-  .sub      { animation-delay:.2s; }
-  .cta-wrap { animation-delay:.3s; }
-  .stats    { animation-delay:.42s; }
-  @keyframes fadeUp { to { opacity:1; transform:none; } }
+
+  /* ── CORNER DECOS ── */
+  .corner { position: absolute; width: 32px; height: 32px; }
+  .corner-tl { top:16px; left:16px; border-top:1px solid rgba(200,151,58,.3); border-left:1px solid rgba(200,151,58,.3); border-radius:3px 0 0 0; }
+  .corner-br { bottom:16px; right:16px; border-bottom:1px solid rgba(200,151,58,.3); border-right:1px solid rgba(200,151,58,.3); border-radius:0 0 3px 0; }
+
+  /* ── ANIMATIONS ── */
+  .col-left  { opacity:0; transform:translateX(-12px); animation: slideR .6s ease .05s forwards; }
+  .col-right { opacity:0; transform:translateX(12px);  animation: slideL .6s ease .15s forwards; }
+  @keyframes slideR { to { opacity:1; transform:none; } }
+  @keyframes slideL { to { opacity:1; transform:none; } }
 </style>
 </head>
 <body>
 <section class="hero">
   <div class="corner corner-tl"></div>
   <div class="corner corner-br"></div>
-  <div class="badge">
-    <span class="badge-dot"></span>
-    <span class="badge-text">Empresa de confianza · CDMX</span>
+
+  <!-- IZQUIERDA -->
+  <div class="col-left">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      <span class="badge-text">Empresa de confianza · CDMX</span>
+    </div>
+    <h1 class="heading">Mudanzas<br><span class="gold-word">Alarcón</span></h1>
+    <p class="sub">Tu mudanza, en manos expertas. Servicio profesional, puntual y con el cuidado que mereces.</p>
+    <div class="cta-wrap">
+      <a href="#cotizar" class="btn-primary">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Cotiza tu mudanza gratis
+      </a>
+      <a href="#servicios" class="btn-secondary">
+        Ver servicios
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
   </div>
-  <h1 class="heading">Mudanzas<br><span class="gold-word">Alarcón</span></h1>
-  <p class="sub">Tu mudanza, en manos expertas. Servicio profesional, puntual y con el cuidado que mereces.</p>
-  <div class="cta-wrap">
-    <a href="#cotizar" class="btn-primary">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      Cotiza tu mudanza gratis
-    </a>
-    <a href="#servicios" class="btn-secondary">
-      Ver servicios
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
+
+  <!-- DIVISOR -->
+  <div class="divider-v"></div>
+
+  <!-- DERECHA -->
+  <div class="col-right">
+    <div class="stat">
+      <span class="stat-num">10+</span>
+      <span class="stat-label">Años de<br>experiencia</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat">
+      <span class="stat-num">500+</span>
+      <span class="stat-label">Mudanzas<br>realizadas</span>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Compromiso<br>de entrega</span>
+    </div>
   </div>
-  <div class="stats">
-    <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Años de experiencia</span></div>
-    <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Mudanzas realizadas</span></div>
-    <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Compromiso de entrega</span></div>
-  </div>
+
 </section>
 </body>
 </html>
