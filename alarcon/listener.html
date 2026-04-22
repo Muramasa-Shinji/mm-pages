@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body>
+<script>
+  window.parent.addEventListener('message', function(e) {
+    if (e.data && e.data.action === 'scrollToForm') {
+      const containers = window.parent.document.querySelectorAll('.ql-container');
+      if (containers[13]) {
+        containers[13].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+</script>
+</body>
+</html>
